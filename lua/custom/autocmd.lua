@@ -19,5 +19,6 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
 
 vim.api.nvim_create_autocmd('VimEnter', {
   desc = 'Split windows when Enter the nvim',
+  pattern = '*.*',
   command = ':split | terminal',
 })
