@@ -70,12 +70,3 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-
--- load project config file
-local project_config = vim.fn.getcwd() .. '/local.lua'
-if vim.fn.filereadable(project_config) == 1 then
-  local confirm = vim.fn.input 'Load local.lua from project? (y/n): '
-  if confirm == 'y' then
-    dofile(project_config)
-  end
-end
