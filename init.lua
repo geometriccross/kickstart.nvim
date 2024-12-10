@@ -1,5 +1,5 @@
-require 'my_keymaps'
-require 'my_autocmd'
+require 'custom.keymaps'
+require 'custom.autocmd'
 -- require 'kickstart.plugins.debug'
 require 'kickstart.plugins.indent_line'
 -- require 'kickstart.plugins.lint'
