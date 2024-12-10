@@ -11,3 +11,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Set indent size
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  command = ':set shiftwidth=4 | set tabstop=4',
+})
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  desc = 'Split windows when Enter the nvim',
+  command = ':split | terminal',
+})
