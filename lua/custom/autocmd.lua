@@ -20,5 +20,23 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
 vim.api.nvim_create_autocmd('VimEnter', {
   desc = 'Split windows when Enter the nvim',
   pattern = '*.*',
-  command = ':split | terminal',
+  callback = function()
+    -- save pre settings
+    local stored_splitright = vim.opt.splitright
+    local stored_splitblow = vim.opt.splitbelow
+
+    -- set a split setting, for stable a function behaivior
+    vim.opt.splitright = true
+    vim.opt.splitbelow = true
+
+    -- split window and tweak width
+    vim.cmd ':vsplit | terminal'
+    vim.cmd ':vertical resize -15'
+
+    -- set a focus
+    vim.cmd ':wincmd h'
+
+    vim.opt.splitright = stored_splitright
+    vim.opt.splitbelow = stored_splitblow
+  end,
 })
